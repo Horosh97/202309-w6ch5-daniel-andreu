@@ -1,15 +1,18 @@
-import type { Pokemon } from "./types.js";
 import type { PokemonResponse } from "./types.js";
 
 const apiUrl = "https://pokeapi.co/api/v2/pokemon/";
 
-const getPokemons = async (apiUrl: string): Promise<Pokemon[]> => {
+const getPokemons = async (apiUrl: string): Promise<PokemonResponse> => {
   const response = await fetch(apiUrl);
   const pokemonsPromise = (await response.json()) as PokemonResponse;
 
-  return pokemonsPromise.results;
+  return pokemonsPromise;
 };
 
-const pokemons = await getPokemons(apiUrl);
+const actualPokemons = await getPokemons(apiUrl);
 
-console.log(pokemons);
+export const getNextPokemons = async (): Promise<PokemonResponse> =>
+  getPokemons(actualPokemons.next);
+
+export const getPreviousPokemons = async (): Promise<PokemonResponse> =>
+  getPokemons(actualPokemons.previous);
