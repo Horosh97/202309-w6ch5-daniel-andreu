@@ -8,7 +8,10 @@ class App extends Component {
   }
 
   populate(): void {
-    throw new Error("Missing implementation");
+    this.element.innerHTML = `
+      <header class="main-header">
+        
+    `;
   }
 }
 
