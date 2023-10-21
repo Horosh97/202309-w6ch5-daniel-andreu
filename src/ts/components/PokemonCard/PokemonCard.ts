@@ -1,5 +1,5 @@
-import { type Pokemon } from "../../types";
-import Component from "../Component/Component";
+import { type Pokemon } from "../../types.js";
+import Component from "../Component/Component.js";
 
 class PokemonCard extends Component {
   constructor(

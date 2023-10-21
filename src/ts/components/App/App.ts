@@ -1,4 +1,6 @@
+import { actualPokemons } from "../../index.js";
 import Component from "../Component/Component.js";
+import PokemonCards from "../PokemonCards/PokemonCards.js";
 
 class App extends Component {
   constructor(parentElement: Element) {
@@ -8,7 +10,17 @@ class App extends Component {
   }
 
   populate(): void {
-    throw new Error("Missing implementation");
+    this.element.innerHTML = `
+    <header class="main-header">
+    <img class="main-logo" src="../../../img/pokemon_logo.svg">
+    </header>
+    <main class="main">
+    </main>        
+    `;
+
+    const main = document.querySelector(".main")!;
+    const pokemonCards = new PokemonCards(main, actualPokemons.results);
+    pokemonCards.render();
   }
 }
 
