@@ -6,6 +6,6 @@ export interface Pokemon {
 export interface PokemonResponse {
   count: number;
   next: string;
-  prevous: string;
+  previous: string;
   results: Pokemon[];
 }
