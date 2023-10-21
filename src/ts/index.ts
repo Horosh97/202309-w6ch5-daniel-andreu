@@ -1,4 +1,9 @@
+import App from "./components/App/App.js";
 import type { PokemonResponse } from "./types.js";
+
+const bodyElement = document.querySelector("body")!;
+const appElement = new App(bodyElement);
+appElement.render();
 
 const apiUrl = "https://pokeapi.co/api/v2/pokemon/";
 
